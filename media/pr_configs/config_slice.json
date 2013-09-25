@@ -1,0 +1,50 @@
+{
+    "configuration": {
+        "title": "test object",
+        "type": "group",
+        "children": [
+            {
+                "title": "Accelerometer",
+                "type": "group",
+                "summary": "Measures the acceleration applied to the device. All values are in SI units (m\/s^2).",
+                "children": [
+                    {
+                        "type": "boolean",
+                        "title": "Enable Probe",
+                        "key": "config_probe_accelerometer_built_in_enabled"
+                    },
+                    {
+                        "title": "Sampling Rate",
+                        "type": "list",
+                        "key": "config_probe_accelerometer_built_in_frequency",
+                        "values": [
+                            "0",
+                            "1",
+                            "2",
+                            "3"
+                        ],
+                        "labels": [
+                            "Fastest",
+                            "Fast (Game)",
+                            "Slow (UI)",
+                            "Slowest (Normal)"
+                        ]
+                    }
+                ]
+                
+            },
+            {
+                "type": "group",
+                "summary": "Information about the type and current state of the battery in the device.",
+                "children": [
+                    {
+                        "type": "boolean",
+                        "title": "Enable Probe",
+                        "key": "config_probe_battery_enabled"
+                    }
+                ],
+                "title": "Battery Probe"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1468 @@
+{
+  "version_name": "1.4.0",
+  "package_name": "edu.northwestern.cbits.purple_robot_manager",
+  "configuration": {
+    "type": "group",
+    "children": [
+      {
+        "type": "group",
+        "children": [
+          {
+            "type": "group",
+            "children": [
+              {
+                "type": "group",
+                "children": [
+                  {
+                    "type": "boolean",
+                    "title": "Enable Probes",
+                    "key": "config_probes_enabled"
+                  }
+                ],
+                "title": "Application Options",
+                "key": "config_all_probes_options"
+              },
+              {
+                "type": "group",
+                "children": [
+                  {
+                    "type": "group",
+                    "children": [
+                      {
+                        "type": "group",
+                        "summary": "Measures the acceleration applied to the device. All values are in SI units (m\/s^2).",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_accelerometer_built_in_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "1",
+                              "2",
+                              "3"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_accelerometer_built_in_frequency",
+                            "labels": [
+                              "Fastest",
+                              "Fast (Game)",
+                              "Slow (UI)",
+                              "Slowest (Normal)"
+                            ]
+                          },
+                          {
+                            "summary": "Set the mimimum threshold to determine if a new reading is signal or noise.",
+                            "title": "Noise Threshold",
+                            "values": [
+                              "0.0",
+                              "0.25",
+                              "0.5",
+                              "1.0"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_accelerometer_threshold",
+                            "labels": [
+                              "None",
+                              "0.25 meters\/second squared",
+                              "0.5 meters\/second squared",
+                              "1 meter\/second squared"
+                            ]
+                          }
+                        ],
+                        "title": "Accelerometer Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Measures angular speed around each axis.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_gyroscope_built_in_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "1",
+                              "2",
+                              "3"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_gyroscope_built_in_frequency",
+                            "labels": [
+                              "Fastest",
+                              "Fast (Game)",
+                              "Slow (UI)",
+                              "Slowest (Normal)"
+                            ]
+                          },
+                          {
+                            "summary": "Set the mimimum threshold to determine if a new reading is signal or noise.",
+                            "title": "Noise Threshold",
+                            "values": [
+                              "0.0",
+                              "0.0025"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_gyroscope_threshold",
+                            "labels": [
+                              "None",
+                              "2.5 milliradians per second"
+                            ]
+                          }
+                        ],
+                        "title": "Gyroscope Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Detects the ambient light level in SI lux units.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_light_built_in_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "1",
+                              "2",
+                              "3"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_light_built_in_frequency",
+                            "labels": [
+                              "Fastest",
+                              "Fast (Game)",
+                              "Slow (UI)",
+                              "Slowest (Normal)"
+                            ]
+                          },
+                          {
+                            "summary": "Set the mimimum threshold to determine if a new reading is signal or noise.",
+                            "title": "Noise Threshold",
+                            "values": [
+                              "0.0",
+                              "5.0",
+                              "10.0"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_light_threshold",
+                            "labels": [
+                              "None",
+                              "5 SI lux",
+                              "10SI lux"
+                            ]
+                          }
+                        ],
+                        "title": "Light Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Records the most accurate location available for the device, given device limitations and respecting battery life.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_location_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_location_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 10 minutes",
+                              "Every 30 minutes"
+                            ]
+                          }
+                        ],
+                        "title": "Location Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Detect the local magnetic field. Can be used as to detect the earth's magnetic field, but may be distorted by metal objects around device.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_magnetic_built_in_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "1",
+                              "2",
+                              "3"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_magnetic_built_in_frequency",
+                            "labels": [
+                              "Fastest",
+                              "Fast (Game)",
+                              "Slow (UI)",
+                              "Slowest (Normal)"
+                            ]
+                          },
+                          {
+                            "summary": "Set the mimimum threshold to determine if a new reading is signal or noise.",
+                            "title": "Noise Threshold",
+                            "values": [
+                              "0.0",
+                              "1.0"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_magnetic_threshold",
+                            "labels": [
+                              "None",
+                              "1.0 micro-Tesla"
+                            ]
+                          }
+                        ],
+                        "title": "Magnetic Field Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Records the pressure on the touch screen of the devices.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_pressure_built_in_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "1",
+                              "2",
+                              "3"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_pressure_built_in_frequency",
+                            "labels": [
+                              "Fastest",
+                              "Fast (Game)",
+                              "Slow (UI)",
+                              "Slowest (Normal)"
+                            ]
+                          },
+                          {
+                            "summary": "Set the mimimum threshold to determine if a new reading is signal or noise.",
+                            "title": "Noise Threshold",
+                            "values": [
+                              "0.0",
+                              "0.5",
+                              "1.0"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_pressure_threshold",
+                            "labels": [
+                              "None",
+                              "0.5 millibars",
+                              "1 millibar"
+                            ]
+                          }
+                        ],
+                        "title": "Pressure Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "How far the front of the device is from an object.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_proximity_built_in_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "1",
+                              "2",
+                              "3"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_proximity_built_in_frequency",
+                            "labels": [
+                              "Fastest",
+                              "Fast (Game)",
+                              "Slow (UI)",
+                              "Slowest (Normal)"
+                            ]
+                          },
+                          {
+                            "summary": "Set the mimimum threshold to determine if a new reading is signal or noise.",
+                            "title": "Noise Threshold",
+                            "values": [
+                              "0.0",
+                              "1.0",
+                              "2.0",
+                              "5.0"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_proximity_threshold",
+                            "labels": [
+                              "None",
+                              "1 centimeter",
+                              "2 centimeters",
+                              "5 centimeters"
+                            ]
+                          }
+                        ],
+                        "title": "Proximity Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Used to record temperature. Implementation depends on the device and does not exist on all devices. Some will record temperature of battery, others temperature of CPU or environment.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_temperature_built_in_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "1",
+                              "2",
+                              "3"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_temperature_built_in_frequency",
+                            "labels": [
+                              "Fastest",
+                              "Fast (Game)",
+                              "Slow (UI)",
+                              "Slowest (Normal)"
+                            ]
+                          },
+                          {
+                            "summary": "Set the mimimum threshold to determine if a new reading is signal or noise.",
+                            "title": "Noise Threshold",
+                            "values": [
+                              "0.0",
+                              "1.0",
+                              "2.0",
+                              "5.0"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_temperature_threshold",
+                            "labels": [
+                              "None",
+                              "1 degree",
+                              "2 degrees",
+                              "5 degrees"
+                            ]
+                          }
+                        ],
+                        "title": "Temperature Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic descriptive statistics for incoming accelerometer data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_accelerometer_frequencies_enabled"
+                          }
+                        ],
+                        "title": "Accelerometer Statistics"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic descriptive statistics for incoming gyroscope data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_gyroscope_statistics_enabled"
+                          }
+                        ],
+                        "title": "Gyroscope Statistics"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic descriptive statistics for incoming gyroscope data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_magnetic_statistics_enabled"
+                          }
+                        ],
+                        "title": "Magnetic Field Statistics"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic descriptive statistics for incoming light sensor data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_light_statistics_enabled"
+                          }
+                        ],
+                        "title": "Light Sensor Statistics"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic descriptive statistics for incoming pressure sensor data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_pressure_statistics_enabled"
+                          }
+                        ],
+                        "title": "Pressure Sensor Statistics"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic descriptive statistics for incoming proximity sensor data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_proximity_statistics_enabled"
+                          }
+                        ],
+                        "title": "Proximity Sensor Statistics"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic descriptive statistics for incoming temperature sensor data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_temperature_statistics_enabled"
+                          }
+                        ],
+                        "title": "Temperature Sensor Statistics"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Provides basic frequency analyses for incoming accelerometer data.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_accelerometer_frequency_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "0",
+                              "5",
+                              "15",
+                              "60",
+                              "120"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_accelerometer_frequency_frequency",
+                            "labels": [
+                              "Continuous",
+                              "5 seconds",
+                              "15 seconds",
+                              "1 minute",
+                              "2 minutes"
+                            ]
+                          },
+                          {
+                            "type": "boolean",
+                            "title": "Retain interpolated values",
+                            "key": "config_probe_accelerometer_frequency_interpolated_enabled"
+                          },
+                          {
+                            "type": "boolean",
+                            "title": "Retain bandpass component",
+                            "key": "config_probe_accelerometer_frequency_bandpass_enabled"
+                          },
+                          {
+                            "type": "boolean",
+                            "title": "Retain lowpass component",
+                            "key": "config_probe_accelerometer_frequency_lowpass_enabled"
+                          }
+                        ],
+                        "title": "Accelerometer Frequencies"
+                      }
+                    ],
+                    "title": "Hardware Sensor Probes"
+                  },
+                  {
+                    "type": "group",
+                    "children": [
+                      {
+                        "type": "group",
+                        "summary": "Information about the type and current state of the battery in the device.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_battery_enabled"
+                          }
+                        ],
+                        "title": "Battery Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Observes whether the mobile phone is idle or in use.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_call_state_enabled"
+                          }
+                        ],
+                        "title": "Current Call State"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Details about the specific hardware the device is running, including component identifiers.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_hardware_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000",
+                              "3600000",
+                              "14400000",
+                              "43200000",
+                              "86400000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_hardware_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 30 minutes",
+                              "Every hour",
+                              "Every 4 hours",
+                              "Every 12 hours",
+                              "Every day"
+                            ]
+                          }
+                        ],
+                        "title": "Hardware Information Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Current network configuration of the active interface.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_network_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_network_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 10 minutes",
+                              "Every 30 minutes"
+                            ]
+                          }
+                        ],
+                        "title": "Network Configuration Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Summarizes the current state of the Purple Robot app, including the amount of data to be transmitted to the server.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_robot_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000",
+                              "3600000",
+                              "14400000",
+                              "43200000",
+                              "86400000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_robot_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 30 minutes",
+                              "Every hour",
+                              "Every 4 hours",
+                              "Every 12 hours",
+                              "Every day"
+                            ]
+                          },
+                          {
+                            "type": "boolean",
+                            "title": "Include Scheme Configuration",
+                            "key": "config_probe_robot_scheme_config"
+                          },
+                          {
+                            "type": "boolean",
+                            "title": "Include JSON Configuration",
+                            "key": "config_probe_robot_json_config"
+                          }
+                        ],
+                        "title": "Purple Robot Health"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Details about the apps the device is currently running.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_running_software_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000",
+                              "3600000",
+                              "14400000",
+                              "43200000",
+                              "86400000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_running_software_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 30 minutes",
+                              "Every hour",
+                              "Every 4 hours",
+                              "Every 12 hours",
+                              "Every day"
+                            ]
+                          }
+                        ],
+                        "title": "Running Software Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Records when the screen turns off and on.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_screen_enabled"
+                          }
+                        ],
+                        "title": "Screen Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Collects information about software installed and running on the current device.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_software_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000",
+                              "3600000",
+                              "14400000",
+                              "43200000",
+                              "86400000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_software_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 30 minutes",
+                              "Every hour",
+                              "Every 4 hours",
+                              "Every 12 hours",
+                              "Every day"
+                            ]
+                          }
+                        ],
+                        "title": "Software Information"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Records telephony hardware, software, and account information.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_telephony_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_telephony_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 10 minutes",
+                              "Every 30 minutes"
+                            ]
+                          }
+                        ],
+                        "title": "Telephony Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Indicates whether the device is in use.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_device_use_enabled"
+                          }
+                        ],
+                        "title": "Device In Use"
+                      }
+                    ],
+                    "title": "Device Information & Configuration Probes"
+                  },
+                  {
+                    "type": "group",
+                    "children": [
+                      {
+                        "type": "group",
+                        "summary": "Detects Bluetooth devices within range.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_bluetooth_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_bluetooth_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 10 minutes",
+                              "Every 30 minutes"
+                            ]
+                          },
+                          {
+                            "type": "boolean",
+                            "summary": "When set, the app will hash the caller's name and phone number when collecting that data.",
+                            "title": "Obfuscate Device Details",
+                            "key": "config_probe_bluetooth_hash_data"
+                          }
+                        ],
+                        "title": "Visible Bluetooth Probe"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Records available wireless (WiFi) access points and relevant connection information.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_wifi_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_wifi_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 10 minutes",
+                              "Every 30 minutes"
+                            ]
+                          }
+                        ],
+                        "title": "WiFi Probe"
+                      }
+                    ],
+                    "title": "External Devices Probes"
+                  },
+                  {
+                    "type": "group",
+                    "children": [
+                      {
+                        "type": "group",
+                        "summary": "Observes visible GPS satellites to help determine location, cloud cover, and other information.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_satellites_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_satellites_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 10 minutes",
+                              "Every 30 minutes"
+                            ]
+                          }
+                        ],
+                        "title": "Visible Satellites"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Acquires the latest weather data for the user's location from a Weather Underground station.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_weather_underground_enabled"
+                          }
+                        ],
+                        "title": "Current Weather Conditions"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Calculates whether it is day or night and the times for sunrise and sunset.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_sunrise_sunset_enabled"
+                          }
+                        ],
+                        "title": "Sunrise & Sunset Feature"
+                      }
+                    ],
+                    "title": "External Environment Probes"
+                  },
+                  {
+                    "type": "group",
+                    "children": [
+                      {
+                        "type": "group",
+                        "summary": "Calculates the distance from significant locations in the local address book.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_distances_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "600000",
+                              "1800000",
+                              "3600000",
+                              "14400000",
+                              "43200000",
+                              "86400000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_distances_frequency",
+                            "labels": [
+                              "Every 10 minutes",
+                              "Every 30 minutes",
+                              "Every hour",
+                              "Every 4 hours",
+                              "Every 12 hours",
+                              "Every day"
+                            ]
+                          },
+                          {
+                            "type": "boolean",
+                            "summary": "When set, the app will hash the name and addresses of locations when collecting that data.",
+                            "title": "Obfuscate Addresses & Place Names",
+                            "key": "config_probe_distances_hash_data"
+                          }
+                        ],
+                        "title": "Significant Location Distances Sensor"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Generates statistics and counts about phone, SMS, and other communication uses.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_communication_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000",
+                              "3600000",
+                              "14400000",
+                              "43200000",
+                              "86400000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_communication_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 30 minutes",
+                              "Every hour",
+                              "Every 4 hours",
+                              "Every 12 hours",
+                              "Every day"
+                            ]
+                          },
+                          {
+                            "type": "boolean",
+                            "summary": "When set, the app will hash the name and phone numbers observed when collecting that data.",
+                            "title": "Obfuscate Call Details",
+                            "key": "config_probe_communication_hash_data"
+                          }
+                        ],
+                        "title": "Call & Message Info"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Records basic information from the local calendar, including elements like the day of the week, week of the month, month of the year, etc.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_date_calendar_enabled"
+                          },
+                          {
+                            "title": "Sampling Rate",
+                            "values": [
+                              "60000",
+                              "300000",
+                              "600000",
+                              "1800000",
+                              "3600000",
+                              "14400000",
+                              "43200000",
+                              "86400000"
+                            ],
+                            "type": "list",
+                            "key": "config_probe_date_calendar_frequency",
+                            "labels": [
+                              "Every minute",
+                              "Every 5 minutes",
+                              "Every 30 minutes",
+                              "Every hour",
+                              "Every 4 hours",
+                              "Every 12 hours",
+                              "Every day"
+                            ]
+                          }
+                        ],
+                        "title": "Date Calendar Sensor"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Generates aggregate statistics that describe the user's phone call activity, include counts of daily calls.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_call_history_enabled"
+                          }
+                        ],
+                        "title": "Call History Statistics"
+                      }
+                    ],
+                    "title": "Personal Information Probes"
+                  },
+                  {
+                    "type": "group",
+                    "children": [
+                      {
+                        "type": "group",
+                        "summary": "Counts the number of nearby location types.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_google_places_enabled"
+                          },
+                          {
+                            "title": "Search radius",
+                            "values": [
+                              "100",
+                              "250",
+                              "500",
+                              "1000",
+                              "5000",
+                              "10000"
+                            ],
+                            "type": "list",
+                            "key": "config_feature_google_places_radius",
+                            "labels": [
+                              "100 meters",
+                              "250 meters",
+                              "500 meters",
+                              "1000 meters",
+                              "5000 meters",
+                              "10000 meters"
+                            ]
+                          }
+                        ],
+                        "title": "Google Places"
+                      },
+                      {
+                        "type": "group",
+                        "summary": "Retrieves information from the your online Fitbit profile.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_feature_fitbit_api_enabled"
+                          }
+                        ],
+                        "title": "Fitbit Measurements"
+                      }
+                    ],
+                    "title": "External Services Probes"
+                  },
+                  {
+                    "type": "group",
+                    "children": [
+                      {
+                        "type": "group",
+                        "summary": "Generates random floating point numbers at a 4Hz frequency for diagnostic purposes.",
+                        "children": [
+                          {
+                            "type": "boolean",
+                            "title": "Enable Probe",
+                            "key": "config_probe_random_noise_enabled"
+                          },
+                          {
+                            "type": "boolean",
+                            "summary": "Save & transmit random values generated to the remote server.",
+                            "title": "Retain Data",
+                            "key": "config_probe_random_noise_persist"
+                          }
+                        ],
+                        "title": "Random Noise Probe"
+                      }
+                    ],
+                    "title": "Miscellaneous Probes"
+                  }
+                ],
+                "title": "Available Probes",
+                "key": "config_all_probes_list"
+              }
+            ],
+            "title": "Probe Configuration",
+            "key": "config_probes_screen"
+          }
+        ],
+        "title": "Probes",
+        "key": "config_settings_probe_category"
+      },
+      {
+        "type": "group",
+        "children": [
+          {
+            "type": "group",
+            "children": [],
+            "title": "Trigger Configuration",
+            "key": "config_triggers_screen"
+          }
+        ],
+        "title": "Triggers",
+        "key": "config_settings_trigger_category"
+      },
+      {
+        "type": "group",
+        "children": [
+          {
+            "type": "group",
+            "children": [
+              {
+                "type": "group",
+                "children": [
+                  {
+                    "type": "boolean",
+                    "title": "Enable Models",
+                    "key": "config_models_enabled"
+                  }
+                ],
+                "title": "Application Options",
+                "key": "key_available_models"
+              }
+            ],
+            "title": "Model Configuration",
+            "key": "config_models_screen"
+          }
+        ],
+        "title": "Learned Models",
+        "key": "config_settings_models_category"
+      },
+      {
+        "type": "group",
+        "children": [
+          {
+            "summary": "System sound used for audible notifications when not otherwise specified.",
+            "title": "Notification Sound",
+            "values": [
+              "0",
+              "sounds\/vision-i\/CRcv.m4a",
+              "sounds\/vision-i\/CSnd.m4a",
+              "sounds\/vision-i\/Error.m4a",
+              "sounds\/vision-i\/New.m4a",
+              "sounds\/vision-i\/Off.m4a",
+              "sounds\/vision-i\/On.m4a"
+            ],
+            "type": "list",
+            "key": "config_default_notification_sound",
+            "labels": [
+              "Default Ringtone",
+              "vision i: CRcv",
+              "vision i: CSnd",
+              "vision i: Error",
+              "vision i: New",
+              "vision i: Off",
+              "vision i: On"
+            ]
+          },
+          {
+            "summary": "Default pattern used to provide haptic feedback (vibrations) for events.",
+            "title": "Haptic Feedback Pattern",
+            "values": [
+              "vibrator_blip",
+              "vibrator_buzz",
+              "vibrator_sos"
+            ],
+            "type": "list",
+            "key": "config_json_haptic_pattern",
+            "labels": [
+              "Blip",
+              "Buzz",
+              "S.O.S."
+            ]
+          },
+          {
+            "type": "boolean",
+            "summary": "Do not display sanity check notifications.",
+            "title": "Mute Status Notifications",
+            "key": "config_mute_warnings"
+          }
+        ],
+        "title": "Notification Options"
+      },
+      {
+        "type": "group",
+        "children": [
+          {
+            "type": "boolean",
+            "summary": "When probes are disabled, specifies whether to display the default placeholder image or to leave the area empty.",
+            "title": "Enable Background Image",
+            "key": "config_show_background"
+          },
+          {
+            "type": "boolean",
+            "summary": "Query any third-party update services (HockeyApp) for application updates & bug fixes.",
+            "title": "Check for Updates on Launch",
+            "key": "config_hockey_update"
+          }
+        ],
+        "title": "Application Options"
+      },
+      {
+        "type": "group",
+        "children": [
+          {
+            "type": "group",
+            "children": [
+              {
+                "type": "boolean",
+                "title": "Enable HTTP Upload",
+                "key": "config_enable_data_server"
+              },
+              {
+                "type": "boolean",
+                "summary": "Persist data prior to transmission in an publicly-accessible location on the device.",
+                "title": "Use External Storage",
+                "key": "config_external_storage"
+              },
+              {
+                "type": "boolean",
+                "summary": "Save data transmitted to the server on the local device for later review.",
+                "title": "Archive Transmitted Data",
+                "key": "config_http_archive"
+              },
+              {
+                "type": "boolean",
+                "summary": "Encrypt the collected sensor data on the local device and in transmissions.",
+                "title": "Encrypt Sensor Data",
+                "key": "config_http_encrypt"
+              },
+              {
+                "type": "boolean",
+                "summary": "Accept all SSL certificates, regardless whether they validate properly.",
+                "title": "Accept All SSL Certificates",
+                "key": "config_http_liberal_ssl"
+              },
+              {
+                "type": "string",
+                "summary": "URL of the HTTP endpoint where sensor data will be logged.",
+                "title": "HTTP Upload Endpoint",
+                "key": "config_data_server_uri"
+              },
+              {
+                "type": "boolean",
+                "summary": "Disable uploads using cellular and other mobile connection types.",
+                "title": "Only Use WiFi Connection",
+                "key": "config_restrict_data_wifi"
+              },
+              {
+                "summary": "Override the default upload intervals with a constant interval.",
+                "title": "HTTP Upload Interval",
+                "values": [
+                  "0",
+                  "30",
+                  "60",
+                  "300",
+                  "600",
+                  "1800",
+                  "3600"
+                ],
+                "type": "list",
+                "key": "config_http_upload_interval",
+                "labels": [
+                  "Default Adaptive Behavior",
+                  "30 seconds",
+                  "1 minute",
+                  "5 minutes",
+                  "10 minutes",
+                  "30 minutes",
+                  "1 hour"
+                ]
+              },
+              {
+                "summary": "Override the default upload payload size with a constant size.",
+                "title": "HTTP Upload Size",
+                "values": [
+                  "0",
+                  "16384",
+                  "32768",
+                  "65536",
+                  "131072",
+                  "262114",
+                  "524288",
+                  "1048576",
+                  "2097152"
+                ],
+                "type": "list",
+                "key": "config_http_upload_size",
+                "labels": [
+                  "Default Adaptive Behavior",
+                  "16 kilobytes",
+                  "32 kilobytes",
+                  "64 kilobytes",
+                  "128 kilobytes",
+                  "256 kilobytes",
+                  "512 kilobytes",
+                  "1 megabyte",
+                  "2 megabytes"
+                ]
+              },
+              {
+                "type": "group",
+                "children": [],
+                "title": "Advanced Options"
+              }
+            ],
+            "title": "HTTP Upload Settings"
+          },
+          {
+            "type": "group",
+            "children": [
+              {
+                "type": "boolean",
+                "summary": "Permit logging of diagnostic events for tracking device functionality & user behavior.",
+                "title": "Enable Event Logging",
+                "key": "config_enable_log_server"
+              },
+              {
+                "type": "string",
+                "summary": "HTTP or HTTPS endpoint providing logging services.",
+                "title": "Log Upload Endpoint",
+                "key": "config_log_server_uri"
+              },
+              {
+                "type": "boolean",
+                "summary": "Include last known location with log events.",
+                "title": "Log Location Data",
+                "key": "config_log_location"
+              },
+              {
+                "type": "boolean",
+                "summary": "Only upload log events when a wireless LAN is available.",
+                "title": "Only Use WiFi Connection",
+                "key": "config_restrict_log_wifi"
+              },
+              {
+                "summary": "How frequently logs may be uploaded to the server.",
+                "title": "Log Upload Interval",
+                "values": [
+                  "300",
+                  "600",
+                  "1800",
+                  "3600"
+                ],
+                "type": "list",
+                "key": "config_log_upload_interval",
+                "labels": [
+                  "5 minutes",
+                  "10 minutes",
+                  "30 minutes",
+                  "1 hour"
+                ]
+              }
+            ],
+            "title": "Network Logging Settings"
+          }
+        ],
+        "title": "Network Options"
+      },
+      {
+        "type": "group",
+        "children": [
+          {
+            "type": "string",
+            "title": "User Identifier",
+            "key": "config_user_id"
+          },
+          {
+            "type": "string",
+            "title": "Configuration Password",
+            "key": "config_password"
+          },
+          {
+            "type": "string",
+            "title": "JSON Configuration URL",
+            "key": "config_json_url"
+          },
+          {
+            "summary": "How often configuration should be refreshed from the server.",
+            "title": "Refresh Interval",
+            "values": [
+              "10",
+              "30",
+              "60",
+              "300",
+              "600",
+              "900",
+              "1800",
+              "3600",
+              "-1"
+            ],
+            "type": "list",
+            "key": "config_json_refresh_interval",
+            "labels": [
+              "10 seconds",
+              "30 seconds",
+              "1 minute",
+              "5 minutes",
+              "10 minutes",
+              "15 minutes",
+              "30 minutes",
+              "1 hour",
+              "Never"
+            ]
+          }
+        ],
+        "title": "Configuration Options"
+      },
+      {
+        "type": "group",
+        "children": [
+          {
+            "type": "group",
+            "children": [],
+            "title": "Third Party Libraries & Code"
+          },
+          {
+            "type": "group",
+            "children": [],
+            "title": "Funders & Benefactors"
+          }
+        ],
+        "title": "Acknowledgements"
+      },
+      {
+        "type": "group",
+        "children": [],
+        "title": "Special Options & Actions"
+      }
+    ]
+  },
+  "version": 10400,
+  "name": "Purple Robot"
+}

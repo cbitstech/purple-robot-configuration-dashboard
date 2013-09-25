@@ -1,0 +1,23 @@
+#scheme {
+	list-style-type: none;
+}
+
+.level2{
+	margin-left:50px;
+}
+
+.level3{
+	margin-left:25px;
+	font-size: 120%;
+	margin-bottom: 10px;
+}
+.level4{
+	margin-left:10px;
+	font-size: 130%;
+	margin-bottom: 10px;
+}
+.level5{
+	font-size: 150%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
