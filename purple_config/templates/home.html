@@ -1,35 +1,113 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		{% load staticfiles %}
 		<title>Purple Robot Configuration </title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="{% static "javascript/parse.js" %}"></script>
-		<script type="text/javascript" src="{% static "javascript/collapsible.js" %}"></script>
+		<script type="text/javascript" src="{% static "javascript/jquery.collapsible.js" %}"></script>
+		<script type="text/javascript" src="{% static "javascript/jquery.collapse_storage.js" %}"></script>
 		<script type="text/javascript" src="{% static "javascript/underscore.js" %}"></script>
 		<link rel="stylesheet" type="text/css" href="{% static "css/styles.css"%}">
 	</head>
 	<body>
-		<div data-theme='a' data-role="page">
-			<div data-theme='a' data-role="content">
-				<form>
-					<div id="scheme" data-role="listview" data-inset="true" data-filter="true">
-					</div>
-				</form>
-			</div>
-		</div><!-- /page -->
-	</body>
-<script>
+            <nav class="navbar navbar-default" role="navigation">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Purple Robot Configurator</a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Configurations</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <pre id="result"></pre>
+                        <div class="list-group"> 
+                            <div class='study-list'>
+                                <h4 class="btn btn-success list-group-item-heading">Fake Study #1</h4>
+                                <ul>
+                                    <li class="list-group-item">Phone #1 Link</li>
+                                    <li class="list-group-item">Phone #2 Link</li>
+                                    <li class="list-group-item">Phone #3 Link</li>
+                                    <li class="list-group-item">Phone #4 Link</li>
+                                </ul>
+                            </div>
+                            <div class='study-list'>
+                                <h4 class="btn btn-success list-group-item-heading">Fake Study #2</h4>
+                            <ul>
+                                <li class="list-group-item">Phone #1 Link</li>
+                                <li class="list-group-item">Phone #1 Link</li>
+                                <li class="list-group-item">Phone #3 Link</li>
+                                <li class="list-group-item">Phone #4 Link</li>
+                            </ul>
+                        </div>
+                            <ul class="scheme" ></ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <form id="cofigurator" >
+                            <fieldset>
+                            <div class='submit btn btn-large btn-warning'>Submit Configuration</div>
+                            <ul class="controls" ></ul>
+                        </fieldset>
+                        </form>
+                    </div> 
+              </div>
+          </div>
+        </div> 
+        </body> 
+        <script>
 		$(document).ready (function(){
+
+
+                $('.submit').on("click", function() {
+                    $('#result').text(JSON.stringify(serializeObject($('input, select'))));
+                    //$('#result').text(JSON.stringify($('input, select').serializeArray()));
+                });
 
 			$.getJSON("{{ config.template_file.url }}", function(data){
 				
-				$('#scheme').append(parse_recursive(data.configuration));
+				$('.controls').append(parse_recursive(data.configuration));
+                $('.control-headings').collapse(0);
+                $('.study-list').collapse(0);
+                switchClass();
+               
+                $('.open-all').on("click", function(){
+            
+                    $('ul').css({'display': 'block'}); 
+            
+                });
+                $('.close-all').on("click", function(){
+            
+                    $('ul').css({'display': 'none'}); 
+                    $('ul:first').css({'display':'block'});
+                    $('ul:eq(1)').css({'display':'block'});
+                    $('ul:eq(2)').css({'display':'block'});
+            
+                });
 			});
-			$('.collapsible').collapsible({
-        		});
 
 		});
 	</script> 			

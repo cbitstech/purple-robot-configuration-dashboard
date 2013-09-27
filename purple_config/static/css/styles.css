@@ -1,23 +1,21 @@
-#scheme {
+a, a:hover {
+    text-decoration: none;
+    color:white;
+}
+
+ul {
 	list-style-type: none;
 }
-
-.level2{
-	margin-left:50px;
+.heading {
+    min-width: 100%;
+    text-align: left;
+    margin-top:8px;
 }
-
-.level3{
-	margin-left:25px;
-	font-size: 120%;
-	margin-bottom: 10px;
+i {
+    margin-right: 14px;
 }
-.level4{
-	margin-left:10px;
-	font-size: 130%;
-	margin-bottom: 10px;
-}
-.level5{
-	font-size: 150%;
-	margin-top: 15px;
-	margin-bottom: 15px;
+.submit {
+    float:right;
+    margin-left: 40px;
+    width: 227px;
 }
