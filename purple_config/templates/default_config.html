@@ -22,6 +22,15 @@
 </div>
 <script>
     
+    $.getJSON("{{ config.template_file.url }}", function(data){
+        $('.controls').html(''); 
+        $('.controls').append(parse_recursive(data.configuration));
+        if($('.submit').length == 0){
+            $('#configurator').append("<div class='submit btn btn-large btn-warning'>Submit Configuration</div>");
+        }
+        $('.control-headings').collapse(0);
+        $('#nickname').val('');
+    });
     $('.config-radio').on("click", function(e) {
         if($('.submit')){
             $('.submit').off("click");
@@ -51,7 +60,6 @@
                     $('.submit').on("click", function(e) {
                         var json_config = JSON.stringify(serializeObject($('input, select')));
                         var config_name = $('#nickname').val();
-                        var user = $('[type="radio"]:checked').val();
                         var config_id = $('[type="hidden"]').val();
                         csrf();
                         $.ajax({

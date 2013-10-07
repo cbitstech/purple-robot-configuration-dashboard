@@ -37,7 +37,8 @@ def save_config(request):
         config = Configuration.objects.get(id=int(request.POST['id']))
         config.json = request.POST['json']
         config.config_name = request.POST['config_name']
-        config.user = RoboUser.objects.filter(id=int(request.POST['user_id']))[0]
+        if config.user:
+            config.user = RoboUser.objects.filter(id=int(request.POST['user_id']))[0]
         config.save()
         results = { 'result': 'success' }
         return HttpResponse(json.dumps(results, indent=2), content_type="application/json")
@@ -45,7 +46,8 @@ def save_config(request):
         config = Configuration()
         config.json = request.POST['json']
         config.config_name = request.POST['config_name']
-        config.user = RoboUser.objects.filter(id=int(request.POST['user_id']))[0]
+        if config.user:
+            config.user = RoboUser.objects.filter(id=int(request.POST['user_id']))[0]
         config.save()
         results = { 'result': 'success' }
         return HttpResponse(json.dumps(results, indent=2), content_type="application/json")
