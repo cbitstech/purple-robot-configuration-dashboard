@@ -41,10 +41,15 @@
             </nav>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         {% for study in studies %}
+                            <div class="checkbox">
+                                <label for="study-{{study.id}}">
+                                  <input class="study-check" id="study-{{study.id}}" type="checkbox"> Select all study users 
+                                </label>
+                              </div>
                             <div class='study-list'>
-                                <h4 class="btn btn-success">{{study.study_name}}</h4>
+                                <div class="btn btn-success">{{study.study_name}}</div>
                                 <ul>
                                 {% for user in study.users.all %}
                                     <li id="{{user.id}}"><div class="radio"><label><input class="user-radio" type='radio' name='userRadio' value="{{user.id}}">{{user.username}}</label></div></li>
@@ -54,7 +59,7 @@
                         {% endfor %}
                     </div>
                     
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <form action="/save/" method="post" id="configurator" >
                             <fieldset>
                                 <div id='name-label' class='form-group'>
@@ -99,6 +104,12 @@
                                     $('[type="hidden"]').val(response.id);
                                 }
                                 $('.submit').on("click", function(e) {
+                                    var studies = [];
+                                    $.each($('.study-check:checked'), function() {
+                                        var id = $(this).attr('id').split("-")[1];
+                                        studies.push(id);
+                                    });
+                                    console.log("studies"+studies);
                                     var json_config = JSON.stringify(serializeObject($('input, select')));
                                     var config_name = $('#nickname').val();
                                     var user = $('[type="radio"]:checked').val();
@@ -107,7 +118,7 @@
                                     $.ajax({
                                         url:'/save_config',
                                         type: "POST",
-                                        data: {json: json_config, config_name: config_name, id: config_id, user_id: user},
+                                        data: {studies: studies, json: json_config, config_name: config_name, id: config_id, user_id: user},
                                         success:function(response){
                                             console.log("heyo");
                                             $('#nickname').val('');

@@ -1,5 +1,5 @@
 function fillForm(json){
-    console.log("fillForm");
+    
     $.each(json, function(key, value) {
         if($('#'+key).attr('type') == 'checkbox') {
             if(value == "on"){
@@ -10,9 +10,6 @@ function fillForm(json){
             $('#'+key).val(value);
         }
     });
-
-
-
 }
 
 function csrf() {
@@ -38,12 +35,6 @@ function csrf() {
                  xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
              }
          } 
-    });
-}
-
-function switchClass(){
-     $('.heading').on("click", function(){
-        $('i:first-child', this).toggleClass('icon-plus-sign icon-minus-sign');
     });
 }
 
@@ -99,12 +90,4 @@ var parse_recursive = function(jsonObject)
 
 	}
 	return output;
-}
-
-var createJson = function(form){
-
-    $(form).on( "submit", function( event ) {
-      event.preventDefault();
-      console.log( $('input, textarea, select').serialize() );
-    });
 }
