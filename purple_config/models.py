@@ -16,6 +16,7 @@ class RoboUser(models.Model):
 
 
 class Configuration(models.Model):
+    default = models.NullBooleanField(null=True, blank=True)
     user = models.ForeignKey(RoboUser, null=True, blank=True, related_name='user')
     config_name = models.CharField(max_length=100, null=True, blank=True)
     json = JSONField()

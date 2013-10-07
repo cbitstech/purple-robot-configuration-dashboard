@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-2">
+        <ul class="config-list">
+            {% for configuration in configurations %}
+                <li><div class="radio"><label><input class="config-radio" type='radio' name='configRadio' value="{{configuration.id}}">{{configuration.config_name}}</label></div></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <form action="/save/" method="post" id="configurator" >
+            <fieldset>
+                <div id='name-label' class='form-group'>
+                    <label class='control-label' for='nickname'>Default Configuration Name</label>
+                    <input class='form-control' type='text' id='nickname' />
+                </div>
+                <ul class="controls" ></ul>
+            </fieldset>
+        </form>
+    </div> 
+</div>
+<script>
+    
+    $('.config-radio').on("click", function(e) {
+        if($('.submit')){
+            $('.submit').off("click");
+        }
+        var config_id = $('[type="radio"]:checked').val();
+        csrf();
+        $.ajax({
+            url:'/get_config',
+            type: "POST",
+            data: {config_id: config_id},
+            success:function(response){
+                $.getJSON("{{ config.template_file.url }}", function(data){
+                    $('.controls').html(''); 
+                    $('.controls').append(parse_recursive(data.configuration));
+                    if($('.submit').length == 0){
+                        $('#configurator').append("<div class='submit btn btn-large btn-warning'>Submit Configuration</div>");
+                    }
+                    $('.control-headings').collapse(0);
+                    $('#nickname').val('');
+                    if(!$.isEmptyObject(response)){
+                        fillForm(response.json);
+                        console.log(response.name);
+                        $('#nickname').val(response.name);
+                        $('body').append("<input type='hidden' value='' />");
+                        $('[type="hidden"]').val(response.id);
+                    }
+                    $('.submit').on("click", function(e) {
+                        var json_config = JSON.stringify(serializeObject($('input, select')));
+                        var config_name = $('#nickname').val();
+                        var user = $('[type="radio"]:checked').val();
+                        var config_id = $('[type="hidden"]').val();
+                        csrf();
+                        $.ajax({
+                            url:'/save_config',
+                            type: "POST",
+                            data: {json: json_config, config_name: config_name, id: config_id},
+                            success:function(response){
+                                console.log("heyo");
+                                $('#nickname').val('');
+                                $('.controls').html(''); 
+                                $('.controls').append(parse_recursive(data.configuration));
+                                if($('.submit').length == 0){
+                                    $('#configurator').append("<div class='submit btn btn-large btn-warning'>Submit Configuration</div>");
+                                }
+                                $('.control-headings').collapse(0);
+                            },
+                            complete:function(){
+                            },
+                            error:function (xhr, textStatus, thrownError){}
+                        });
+                        return true;
+                    });
+                }); 
+            },
+            complete:function(){},
+            error:function (xhr, textStatus, thrownError){}
+        });
+    });
+</script>
+{% endblock %}

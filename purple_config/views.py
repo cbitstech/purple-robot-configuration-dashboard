@@ -7,15 +7,30 @@ from django.http import HttpResponse
 import json
 
 def get_config(request):
-    robouser = RoboUser.objects.filter(id = int(request.POST['user_id']))[0]
-    try:
-        config = Configuration.objects.filter(user = robouser)[0]
+    if request.POST['config_id']:
+        config = Configuration.objects.filter(id = int(request.POST['config_id']))[0]
         results = config.json
         nickname = config.config_name
         config_id = config.id
         return HttpResponse(json.dumps({"json":results, "name":nickname, "id":config_id}), content_type="application/json")
-    except IndexError:
-        return HttpResponse(json.dumps({}), content_type="application/json")
+    else:
+        robouser = RoboUser.objects.filter(id = int(request.POST['user_id']))[0]
+        try:
+            config = Configuration.objects.filter(user = robouser)[0]
+            results = config.json
+            nickname = config.config_name
+            config_id = config.id
+            return HttpResponse(json.dumps({"json":results, "name":nickname, "id":config_id}), content_type="application/json")
+        except IndexError:
+            return HttpResponse(json.dumps({}), content_type="application/json")
+
+def default_config(request):
+    c = Context()
+    config = PurpleRobotConfigTemplate.objects.all()[0]
+    configurations = Configuration.objects.filter(default=True)
+    c['config'] = config
+    c['configurations'] = configurations
+    return render_to_response('default_config.html', c)
 
 def save_config(request):
     try:

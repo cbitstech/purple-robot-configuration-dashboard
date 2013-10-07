@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<title>Purple Robot Configuration </title>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{% static "javascript/parse.js" %}"></script>
+		<script type="text/javascript" src="{% static "javascript/jquery.collapsible.js" %}"></script>
+		<script type="text/javascript" src="{% static "javascript/jquery.collapse_storage.js" %}"></script>
+		<script type="text/javascript" src="{% static "javascript/underscore.js" %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static "css/styles.css"%}">
+	</head>
+	<body>
+        <nav class="navbar navbar-default" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="home">Purple Robot Configurator</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav">
+              <li><a href="default_config">Configurations</a></li>
+              <li><a href="#">Users</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </nav>
+        <div class="container"> 
+        {% block content %}{% endblock %}
+    </div>
+    </body> 
+</html>

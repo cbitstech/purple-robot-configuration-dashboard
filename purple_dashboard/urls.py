@@ -10,6 +10,7 @@ urlpatterns = patterns('',
      url(r'^home', 'purple_config.views.home', name='home'),
      url(r'^save_config', 'purple_config.views.save_config', name='save_config'),
      url(r'^get_config', 'purple_config.views.get_config', name='get_config'),
+     url(r'^default_config', 'purple_config.views.default_config', name='default_config'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
