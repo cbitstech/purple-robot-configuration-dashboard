@@ -110,6 +110,7 @@ WSGI_APPLICATION = 'purple_dashboard.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+    "/var/www/django/purple_dahsboard_root/purple_config/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -130,7 +131,8 @@ INSTALLED_APPS = (
     'json_field',
     'south',
     'jquery',
-    'jasmine.django'
+    'jasmine.django',
+    'django_extensions'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

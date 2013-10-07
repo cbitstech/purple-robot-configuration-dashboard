@@ -1,3 +1,46 @@
+function fillForm(json){
+    console.log("fillForm");
+    $.each(json, function(key, value) {
+        if($('#'+key).attr('type') == 'checkbox') {
+            if(value == "on"){
+                $('#'+key).prop('checked', true);
+            }
+        }
+        else{
+            $('#'+key).val(value);
+        }
+    });
+
+
+
+}
+
+function csrf() {
+    $.ajaxSetup({ 
+         beforeSend: function(xhr, settings) {
+             function getCookie(name) {
+                 var cookieValue = null;
+                 if (document.cookie && document.cookie != '') {
+                     var cookies = document.cookie.split(';');
+                     for (var i = 0; i < cookies.length; i++) {
+                         var cookie = jQuery.trim(cookies[i]);
+                         // Does this cookie string begin with the name we want?
+                     if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                         break;
+                     }
+                 }
+             }
+             return cookieValue;
+             }
+             if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                 // Only send the token to relative URLs i.e. locally.
+                 xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+             }
+         } 
+    });
+}
+
 function switchClass(){
      $('.heading').on("click", function(){
         $('i:first-child', this).toggleClass('icon-plus-sign icon-minus-sign');
@@ -10,27 +53,12 @@ var serializeObject = function(object) {
   objectData = {};
 
   $.each(arrayData, function() {
-    var value;
-
-    if (this.value != null) {
-      value = this.value;
-    } else {
-      value = '';
-    }
-
-    if (objectData[this.name] != null) {
-      if (!objectData[this.name].push) {
-        objectData[this.name] = [objectData[this.name]];
-      }
-
-      objectData[this.name].push(value);
-    } else {
-      objectData[this.name] = value;
-    }
+      objectData[this.name] = this.value || '';
   });
 
   return objectData;
-};
+}
+
 var parse_recursive = function(jsonObject)
 {
 	var output = "";
@@ -52,7 +80,7 @@ var parse_recursive = function(jsonObject)
 	}
 	else if (title && type=="boolean")
 	{
-		output += "<li ><div class='checkbox'><label for='"+key+"'><input name='"+key+"' type='checkbox' id='"+key+"'/><strong>"+title+"</strong></label></div></li>";
+		output += "<div class='checkbox'><label for='"+key+"'><input name='"+key+"' type='checkbox' id='"+key+"'/><strong>"+title+"</strong></label></div>";
 	}
 	else if (title && type == "string")
 	{
